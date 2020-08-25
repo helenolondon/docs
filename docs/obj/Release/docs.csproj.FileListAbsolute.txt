@@ -1,0 +1,8 @@
+C:\docs\docs\docs\obj\Release\docs.csprojAssemblyReference.cache
+C:\docs\docs\docs\obj\Release\docs.csproj.CoreCompileInputs.cache
+C:\docs\docs\docs\obj\Release\docs.csproj.CopyComplete
+C:\docs\docs.exe.config
+C:\docs\docs\docs\obj\Release\docs.exe
+C:\docs\docs\docs\obj\Release\docs.pdb
+C:\docs\docs.exe
+C:\docs\docs.pdb
