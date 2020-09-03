@@ -40,13 +40,23 @@ namespace docs
             string campoDW;
             string tabelaDW;
             DocInfo doc;
+            string oF, oH, oG;
 
             for(int y = 7; y < 500; y++)
             {
                 campoDW = sl.GetCellValueAsString($"D{y}");
                 tabelaDW = sl.GetCellValueAsString($"E{y}");
 
-                if(tabelaDW.ToUpper() == "DIM_DATA")
+                if((tabelaDW.ToUpper() == "DIM_DATA") || string.IsNullOrEmpty(campoDW) || string.IsNullOrEmpty(tabelaDW))
+                {
+                    continue;
+                }
+
+                oF = sl.GetCellValueAsString($"F{y}");
+                oH = sl.GetCellValueAsString($"H{y}");
+                oG = sl.GetCellValueAsString($"G{y}");
+
+                if(string.IsNullOrEmpty(oF) && string.IsNullOrEmpty(oH) && string.IsNullOrEmpty(oG))
                 {
                     continue;
                 }
@@ -59,9 +69,20 @@ namespace docs
                     this._metaDb.Add(doc);
                 }
 
-                doc.CampoOrigem = sl.GetCellValueAsString($"F{y}");
-                doc.TabelaOrigem = sl.GetCellValueAsString($"H{y}");
-                doc.BaseOrigem  = sl.GetCellValueAsString($"G{y}");
+                if (!string.IsNullOrEmpty(oF))
+                {
+                    doc.CampoOrigem = oF;
+                }
+
+                if (!string.IsNullOrEmpty(oH))
+                {
+                    doc.TabelaOrigem = oH;
+                }
+
+                if (!string.IsNullOrEmpty(oG))
+                {
+                    doc.BaseOrigem = oG;
+                }
             }
         }
 
